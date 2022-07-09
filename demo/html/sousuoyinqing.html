@@ -1,0 +1,61 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #ul1 {
+            width: 180px;
+            list-style: none;
+        }
+        
+        #ul1 li:hover {
+            background-color: red;
+        }
+        </style>
+    </head>
+
+    <body>
+        <form action="">
+            <input id="in1" type="text" value="" placeholder="请输入内容">
+            <button id="bu1">百度一下</button>
+            <ul id="ul1">
+            </ul>
+        </form>
+    </body>
+    <script>
+        var In = document.getElementById("in1")
+        var Bu = document.getElementById("bu1")
+        var Ul = document.getElementById("ul1")
+        In.oninput = function(ev){
+            var e = ev || window.event;
+            e.cancelBubble = true
+            var str = "https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=36547,36748,36726,36454,31660,36690,36167,36693,36697,36569,36075,36772,36708,36745,36760,36768,36766,26350,36711,36650&wd="+In.value+"&req=2&bs=%E5%AE%89%E5%80%8D%E6%99%8B%E4%B8%89&pbs=%E5%AE%89%E5%80%8D%E6%99%8B%E4%B8%89&csor=1&pwd=yi&cb=fun"
+            var sc = document.createElement("script");
+            sc.src = str
+            document.body.appendChild(sc)
+            sc.remove()
+        }
+        function fun(res){
+            if(!res){
+                Ul.style.display = "none"
+                return
+            }
+            let str = ""
+            res.g.forEach(item => {
+                str+=`<li>${item.q}</li>`
+            });
+            Ul.innerHTML = str
+        }
+    </script>
+
+    </html>

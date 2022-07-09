@@ -1,0 +1,84 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+.container-fluid{
+    height: 80px;
+}
+#he{
+    width: 100%;
+    height: 70px;
+    box-shadow: 2px 2px 5px 2px rgb(190, 190, 190);
+}
+nav{
+    width: 80%;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+nav ul{
+    width: 350px;
+    display: flex;
+    margin-left: 50px;
+    justify-content: space-around;
+}
+nav ul li a:hover{
+    text-decoration: none;
+    color: red;
+}
+nav form{
+    width: 400px;
+    height: 40px;
+    border: 1px solid rgb(192, 192, 192);
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    z-index: 100;
+    margin-left: 20px;
+}
+nav form .iconfont{
+    font-size: 20px;
+}
+nav form input{
+    border: none;
+    margin-left: 10px;
+    width: 360px;
+}
+#xia{
+    margin-left: 30px;
+    color: rgb(194, 193, 193);
+}
+nav div{
+    margin-left: 20px;
+    color: rgb(194, 193, 193);
+}
+nav div a{
+    color: rgb(194, 193, 193);
+}
+#gou{
+    margin-left: 20px;
+    color: rgb(194, 193, 193);
+}
+#mine{
+    margin-left: 20px;
+}
+#deng{
+    margin-left: 20px; 
+}
+#deng:hover{
+    color: red;
+}
+.icon-shouye_shugang_shijiantixing{
+    
+}
+#zhu{
+    
+}
+#zhu:hover{
+    color: red;
+}
+.jumbotron{
+    margin-top: 20px;
+}
