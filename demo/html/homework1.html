@@ -1,0 +1,63 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../../base/vue.js"></script>
+        <script>
+            window.onload = function(){
+            var p1 = new Vue({
+                el:"#div1",
+                data:{
+                    message:"当前用户正在输入用户名",
+                    messagea:"当前用户正在输入密码",
+                    messageN:"请输入用户名",
+                    messageP:"请输入密码",
+                    messageT:"",
+                    isN:false,
+                    isP:false,
+                    isL:false,
+                    isT:false,
+                },
+                methods:{
+                    Na(){this.isN = false},
+                    Ps(){this.isP = false},
+                    fo(){this.isL = false,this.isT = false},
+                    res(){this.isL = false,this.isT = false},
+                    Loign(e){
+                        this.isL = true
+                        e.stopPropagation()
+                        if(this.messageN !== "123" && this.messageP !== "123"){
+                            this.isT = true,
+                            this.isL = false,
+                            this.messageT = "用户名或密码输入错误"
+                        }
+                    },
+                },
+                computed:{
+                    LoignName(){
+                        return `登录成功！用户名：${this.messageN};密码：${this.messageP}`
+                    }
+                }
+            }) 
+        }
+        </script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="div1">
+            <form action="">
+                请输入用户名<input type="text" @focus="fo" v-model="messageN" @input="isN = true" @blur="Na()" placeholder="请输入用户名">
+                <p v-if="isN">{{message}}</p></br>
+                请输入密码 <input type="text" @focus="fo" v-model="messageP" @input="isP = true" @blur="Ps()" placeholder="请输入密码">
+                <p v-if="isP">{{messagea}}</p></br>
+                <a @click="Loign($event)">登录</a><input type="reset" @click="res">
+                <p v-if="isT">{{messageT}}</p>
+                <p v-if="isL">{{LoignName}}</p>
+            </form>
+        </div>
+    </body>
+    </html>

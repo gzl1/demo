@@ -1,0 +1,66 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="../../base/vue.js"></script>
+        <script>
+            Vue.config.productionTip = false;
+            window.onload = function(){
+            Vue.component("fa",{
+                template:"#fa",
+                data(){
+                    return{
+                        like:"篮球", 
+                        isS:false,
+                        likea:""
+                    }
+                },
+                methods:{
+                    li(){
+                        this.isS = true
+                        this.likea = this.like + this.$refs.li.likes
+                    }
+                },
+                components:{
+                    "son":{
+                        template:"#son",
+                        props:["like"],
+                        data(){
+                            return{
+                                likes:"两年半"
+                            }
+                        }
+                    }
+                }
+            })
+            var vm = new Vue({
+                el:"#div1",
+            }) 
+            
+        }
+        </script>
+    </head>
+    <body>
+        <template id="fa">
+            <div>
+                <button @click="li()">展示</button>
+                <p>{{like}}</p>
+                <p v-if="isS">{{likea}}</p>
+                <son ref="li"></son>
+            </div>
+        </template>
+        <template id="son">
+            <div>
+                <p>{{likes}}</p>
+            </div>
+        </template>
+        <div id="div1">
+            <fa></fa>
+        </div>
+    </body>
+    </html>

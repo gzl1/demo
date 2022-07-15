@@ -1,0 +1,93 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="../../base/vue.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/vue-resource/1.5.3/vue-resource.js"></script>
+        <style>
+            *{
+                margin: 0;
+                padding:0
+            }
+            ul{
+                list-style: none;
+            }
+        </style>
+        <script>
+            Vue.config.productionTip = false;
+            window.onload = function(){
+            Vue.component("fa",{
+                template:"#fa",
+                data(){
+                    return{
+                        message:"",
+                        arr:[],
+                        type:0,
+                        aa:"",
+                        bb:[]
+                    }
+                },
+                methods:{
+                    cs(){
+                        this.arr1.sort((a,b)=>{
+                            return a.age - b.age
+                        })
+                        console.log(this.bb)
+                    },
+                    cj(){
+                        this.arr1.sort((a,b)=>{
+                            return b.age - a.age
+                        })
+                    },
+                },   
+                computed:{
+                    arr1(){
+                        return this.arr.filter(item=>{
+                            return item.title.indexOf(this.message) !== -1
+                        })
+                    }
+                },
+                created(){ 
+                      
+                    axios.get("../json/dataa.json").then(res=>{
+                        this.arr = res.data
+                        // console.log(eval(1+1))
+                        var a = 10;
+                        var a = 10;
+                        console.log(a)
+                    })
+                },
+            })
+            var vm = new Vue({
+                el:"#div1",
+            }) 
+        }
+        </script>
+    </head>
+    <body>
+        <template id="fa">
+            <div>
+                <input type="text" v-model="message">
+                <button @click="cs">升序</button>
+                <button @click="cj">降序</button>
+                <ul>
+                    <li v-for="item in arr1">{{item.title}}-{{item.age}}</li>
+                </ul>
+                <input type="radio" name="a" v-model="aa" value="nan">哈哈
+                <input type="radio" name="a" v-model="aa" value="nü">和二
+                <input type="checkbox" name="" id="" v-model="bb" value="1">1
+                <input type="checkbox" name="" id="" v-model="bb" value="2">2
+                <input type="checkbox" name="" id="" v-model="bb" value="3">3
+            </div>
+        </template>
+        <div id="div1">
+            <fa></fa>
+        </div>
+    </body>
+    </html>

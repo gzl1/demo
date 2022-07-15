@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            function Aa(name,age){
+               this.name = name;
+               this.age = age
+            }
+            Aa.prototype.showName = function(){
+                console.log(`姓名是：${this.name}`)
+            }
+            function Bb(name,job){
+                Aa.call(this,name)
+                this.job = job
+            }
+            Bb.prototype = Object.create(Aa.prototype)
+            var Bb1 = new Bb("121",23,23)
+            Bb1.showName()
+            class Cc{
+                constructor(name,age){
+                    this.name = name;
+                    this.age = age;
+                }
+            }
+            Cc.prototype.showName = function(){
+                console.log(`我的名字${this.name}`)
+            }
+            class Dd extends Cc{
+                constructor(name,job){
+                    super(name);
+                    this.job = job;
+                }
+            }
+            var Dd1 = new Dd("111",12)
+            Dd1.showName()
+            class Ee{
+                constructor(name,age){
+                    this.name = name;
+                    this.age = age;
+                }
+            }
+            Ee.prototype.showName = function(){
+                console.log(`你的名字是${name}`)
+            }
+            class Ff extends Ee{
+                constructor(name,age,job){
+                    super(name,age)
+                    this.job = job
+                }
+            }
+            var Ff1 = new Ff("1221",21,12)
+            Ff1.showName()
+            function Gg(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            Gg.prototype.showName = function(){
+                console.log(`他的名字是${this.name}`)
+            }
+            function Hh(name,age,job){
+                Gg.call(this,name,age)
+                this.job = job
+            }
+            Hh.prototype = Object.create(Gg.prototype)
+            var Hh1 = new Hh("1212121",12,12)
+            Hh1.showName()
+            var obj = {}
+            obj = null
+            console.log(obj)
+            var ajj = function ah(){
+                console.log(2)
+            }
+            function af(s){
+                console.log(1)
+                s()
+            }
+            af(ajj)
+            // setTimeout(function(){
+            //     console.log(111)
+            //     setTimeout(function(){
+            //         console.log(2222)
+            //         setTimeout(function(){
+            //             console.log(333)
+            //         },2000)
+            //     },2000)
+            // },2000)
+            // var a = 1
+            // new Promise(function(resolve,reject){
+            //     setTimeout(function(){
+            //         resolve()
+            //         //reject()
+            //     },1000)
+            // }).then(()=>{
+            //     a++
+            //     return new Promise((resolve, reject) => {
+            //         setTimeout(function(){
+            //             resolve()
+            //         },1000)
+            //     })
+            // }).then(()=>{
+            //     a++
+            //     console.log(a)
+            // }).catch(()=>{
+            //     console.log("第一次失败！")
+            // })
+            var b = 1;
+            // async function hj(){
+            //     var res = await new Promise((resolve,reject)=>{
+            //         setTimeout(function(){
+            //             resolve()
+            //         },1000)
+            //     }).then(()=>{
+            //        return b+=2
+            //     })
+            //     console.log(res)
+            //     var res1 = await new Promise((resolve,reject)=>{
+            //         setTimeout(function(){
+            //             resolve(res)
+            //         },1000)
+            //     }).then(()=>{
+            //        return res+=2
+            //     })
+            //     console.log(res1)
+            //     console.log(12)
+            // }
+            // hj()
+            function ff(){
+                var af = 101;
+                function gg(){
+                    console.log(af)
+                }
+                gg()
+            }
+            ff()
+            console.log(af)
+
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+    
